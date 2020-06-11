@@ -64,7 +64,6 @@ blblm_furrr <- function(formula, data, m = 10, B = 5000, core = 1) {
   res <- list(estimates = estimates, formula = formula)
   class(res) <- "blblm"
   invisible(res)
-  closeAllConnections()
 }
 #' @title Linear Regression with Parallel Little Bag of Bootstraps by parallel package
 #' @description The core function to parallely implement linear Regression with blb by parallel
