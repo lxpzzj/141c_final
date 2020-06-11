@@ -24,7 +24,7 @@ test_that("linear Regression parallel", {
   expect_equal(length(prediction),2)
 })
 
-test_that("Robust linear Regression", {
+test_that("Glm Regression", {
   model.fit <- blbglm(mpg ~ wt * hp, family = "Gamma", data = mtcars, m = 3, B = 100)
   coefficiences <- coef( model.fit)
   confidence_interval <- confint(model.fit, c("wt", "hp"))
@@ -37,8 +37,8 @@ test_that("Robust linear Regression", {
   expect_equal(length(prediction),2)
 })
 
-test_that("Robust linear Regression", {
-  model.fit <- blbglm_prallel(mpg ~ wt * hp, family = "Gamma", data = mtcars, m = 3, B = 100)
+test_that("Glm Regression", {
+  model.fit <- blbglm_prallel(mpg ~ wt * hp, data = mtcars, m = 3, B = 100)
   coefficiences <- coef( model.fit)
   confidence_interval <- confint(model.fit, c("wt", "hp"))
   sigma_boot <- sigma( model.fit, confidence = TRUE)
